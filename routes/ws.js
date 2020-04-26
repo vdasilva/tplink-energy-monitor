@@ -24,6 +24,8 @@ router.ws('/', function(ws, req) {
       dataLogger.getLogEntriesForDevice(deviceId, (loggedData) => {
         ws.send(dataBroadcaster.generatePayload('loggedData', deviceId, loggedData));
       });
+      ws.send(dataBroadcaster.generatePayload('newIdleTime', deviceId, 9999));
+      ws.send(dataBroadcaster.generatePayload('newRunningTime', deviceId, 9999));
       
     }
   });

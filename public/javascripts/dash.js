@@ -63,6 +63,12 @@ var dash = {
       else if(message.dataType === 'powerState') {
         dash.refreshPowerState(message.data);
       }
+      else if(message.dataType === 'newIdleTime') {
+        dash.setIdleAlertTime(message.data);
+      }
+      else if(message.dataType === 'newRunningTime') {
+        dash.setRunAlertTime(message.data);
+      }
       else if(message.dataType === 'newLogEntry') {
         dash.addLogEntry(message.data, true);
       }
@@ -325,6 +331,22 @@ var dash = {
 
     $("#avg-day").text(avg.toFixed(2));
 
+  },
+
+  setIdleAlertTime: function(value) {
+    if (value === 9999) {
+      $("#idle-tm").text("-");
+    }else {
+      $("#idle-tm").text(moment().startOf('year').seconds(value.toFixed(0)).format('HH:mm:ss'));
+    }
+  },
+
+  setRunAlertTime: function(value) {
+    if (value === 9999) {
+      $("#run-tm").text("-");
+    }else {
+      $("#run-tm").text(moment().startOf('year').seconds(value.toFixed(0)).format('HH:mm:ss'));
+    }
   },
 
   parseMonthlyUsageData: function(usageData) {

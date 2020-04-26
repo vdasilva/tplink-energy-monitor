@@ -28,7 +28,7 @@ function fetchRealtimeUsage() {
 
         response.voltage = normaliseVoltage(response, device);  
         updateCache(cachedRealtimeUsageData, deviceId, response);
-
+        
         dataBroadcaster.broadcastRealtimeUsageUpdate(deviceId, response);
       });
 

@@ -20,6 +20,14 @@ function broadcastNewLogEntry(deviceId, data) {
   broadcast(generatePayload('newLogEntry', deviceId, data));
 }
 
+function broadcastNewIdleTime(deviceId, data) {
+  broadcast(generatePayload('newIdleTime', deviceId, data));
+}
+
+function broadcastNewRunningTime(deviceId, data) {
+  broadcast(generatePayload('newRunningTime', deviceId, data));
+}
+
 function broadcast(payload) {
   app.getWsClients().forEach(client => {
     client.send(payload);
@@ -44,5 +52,7 @@ module.exports = {
   broadcastMonthlyUsageUpdate: broadcastMonthlyUsageUpdate,
   broadcastPowerStateUpdate: broadcastPowerStateUpdate,
   broadcastNewLogEntry: broadcastNewLogEntry,
+  broadcastNewIdleTime: broadcastNewIdleTime,
+  broadcastNewRunningTime: broadcastNewRunningTime,
   generatePayload: generatePayload
 }

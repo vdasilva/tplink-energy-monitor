@@ -60,3 +60,6 @@ typings/
 dist/
 .scannerwork/
 *-log.json
+
+#User-specific runtime monitoring configuration
+*-monitor-config.json

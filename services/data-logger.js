@@ -80,7 +80,9 @@ function log(device) {
 
     let logEntry = {
       ts: Date.now(),
-      pw: (('power_mw' in response) ? (response.power_mw / 1000) : response.power)
+      pw: (('power_mw' in response) ? (response.power_mw / 1000) : response.power),
+      //Added kwh to log
+      kwh: (('total_wh' in response) ? (response.total_wh / 1000) : response.total)
     }
 
     let filePath = getLogPath(device.deviceId);
@@ -93,6 +95,7 @@ function log(device) {
 
       writeLog(filePath, entries);
       dataBroadcaster.broadcastNewLogEntry(device.deviceId, logEntry);
+
     })
 
   });

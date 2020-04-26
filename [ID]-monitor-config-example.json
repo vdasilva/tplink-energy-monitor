@@ -1,0 +1,21 @@
+{
+  "powerThreshold": 50,
+  "aliasDevice": "Device",
+  "emailSender": "sender@gmail.com",
+  "passEmailSender": "senderPassword",
+  "emailReceiver": "receiver@gmail.com",
+  "logFileName": "deviceLog",
+  "monitorFrequencyMs": 60000,
+  
+  "idleThreshold": 3600,
+  "repeatIdleAlertEvery": 1800,
+  "deviceRunningTimeThreshold": 3600,
+  "repeatRunningAlertEvery": 1800,
+    
+  "nbLineLogEmail": 5,
+  "enableStartAlert": "off",
+  "enableExcessiveRunningAlert": "off",
+  "enableStopAlert": "off",
+  "enableExcessiveIdleAlert": "off"
+}
+
